@@ -26,7 +26,7 @@ defmodule Connection do
       type: :worker,
       #the child process is always restarted after given the shutdown command
       restart: :permanent,
-      shutdown: 200
+      shutdown: 250
     }
   end
 

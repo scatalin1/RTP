@@ -11,6 +11,10 @@ defmodule TweetDynamicSupervisor do
     DynamicSupervisor.init(strategy: :one_for_one)
   end
 
+#  def totalWorkers() do
+#    DynamicSupervisor.count_children(__MODULE__).active
+#  end
+
   # This will start child by calling MyWorker.start_link(init_arg, foo, bar, baz)
   def addWorker(message) do
     child_spec = {Worker, {message}}
