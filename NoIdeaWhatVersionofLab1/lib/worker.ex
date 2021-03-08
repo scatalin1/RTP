@@ -49,9 +49,8 @@ defmodule Worker do
     if tweetContent.data =~ "panic" do
       IO.inspect("__________________Panic message detected________________")
       else
-      IO.inspect(%{"Current tweet: " => decodedTweet})
-      IO.inspect(%{"EmotionValue score: " => comparedEmotions})
-      IO.inspect("___________________________________________________________________________________________________________")
+      IO.inspect(comparedEmotions)
+      #IO.inspect("___________________________________________________________________________________________________________")
     end
   end
 
