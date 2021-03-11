@@ -11,8 +11,25 @@ defmodule TweetDynamicSupervisor do
     DynamicSupervisor.init(strategy: :one_for_one)
   end
 
-#  def totalWorkers() do
-#    DynamicSupervisor.count_children(__MODULE__).active
+#  @impl true
+#  def init(:ok) do
+#    connection_specs =
+#      for index <- 1..10 do
+#        DynamicSupervisor.child_spec({__MODULE__, {host, port}}, id: {__MODULE__, index})
+#      end
+#
+#    connection_supervisor_spec = %{
+#      id: :connection_supervisor,
+#      type: :supervisor,
+#      start: {DynamicSupervisor, :start_link, [connection_specs, [strategy: :one_for_one]]}
+#    }
+#
+#    children = [
+#      {Registry, name: FantaRegistry, keys: :duplicate},
+#      connections_supervisor_spec
+#    ]
+#
+#    DynamicSupervisor.init(children, strategy: :one_for_one)
 #  end
 
   # This will start child by calling MyWorker.start_link(init_arg, foo, bar, baz)
